@@ -63,11 +63,15 @@ class MyRadio {
 	private JPanel panel = new JPanel();// /定义一个面板
 	private JPanel panel1 = new JPanel();// /定义一个面板
 	private JButton developer = new JButton("上传文件");
+	private JButton developer1 = new JButton("停止");
 	
+	
+	private static String zdflag="no";
+	private static JLabel jlabel14 = new JLabel("");
  
 	public MyRadio() {
 		panel.setBorder(BorderFactory.createTitledBorder("数据提交"));// 定义一个面板的边框显示条
-		panel.setLayout(new GridLayout(5, 10));// 定义排版，一行三列
+		panel.setLayout(new GridLayout(6, 10));// 定义排版，一行三列
 		
 		
 		panel.add(this.jlabel1);// 加入组件
@@ -92,8 +96,10 @@ class MyRadio {
 		panel.add(this.jb7);// 加入组件
 		panel.add(this.jb5);// 加入组件
 		panel.add(this.jb6);// 加入组件
+		
+		
 
-
+		panel.add(this.jlabel14);
 		
 		
 		//http://data.zz.baidu.com/update?site=http://ykdc.net&token=eMF5yE1vV5fBasdfeqE
@@ -104,6 +110,10 @@ class MyRadio {
 		
 	
 		panel.add(this.developer);
+		panel.add(this.developer1);
+	
+		
+		
 
 		final ButtonGroup group = new ButtonGroup();
 		group.add(this.jb1);
@@ -116,11 +126,12 @@ class MyRadio {
 
 		developer.addMouseListener(new MouseAdapter() {
 			
-		
-			
+	
 			
 			
 		public void mouseClicked(MouseEvent event) {
+			zdflag = "no";
+			
 			jta.setText("");
 			String url="";
 			String panduan="qqqqqqq";
@@ -191,6 +202,14 @@ class MyRadio {
 				
 			}
         });*/
+		
+		developer1.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent event) {
+				zdflag = "yes";
+			}
+			
+		});
+		
 		container.add(panel,BorderLayout.NORTH);// 加入面板
 		container.add(panel1,BorderLayout.CENTER);// 加入面板
 		this.jFrame.setSize(1000, 590);// 设置窗体大小
@@ -230,6 +249,10 @@ String text="";
 		
 			   List<String> list = new ArrayList<String> ();
 			   while((line = br.readLine()) != null){
+				   
+					   
+				  
+		     	   if(zdflag.equals("no")) {
 			   readLineNum ++ ;
          	   list.add(line);
          	   
@@ -275,12 +298,18 @@ String text="";
        			   }
          	   }
 			
-			  
+   
 		  
 		  
 		  
 			   }
+		     	   else {
+		     		   break;
+		     	   }
 			   
+			   }
+			   
+		  	   if(zdflag.equals("no")) {
 			   if(list!=null&&list.size()>0){
 				   System.out.println("=====第" + processCount + "次处理开始====="+url);
 				   text+="=====第" + processCount + "次处理开始====="+url+"\r\n";
@@ -296,7 +325,7 @@ String text="";
       			  jta.setText(text);
              		jta.paintImmediately(jta.getBounds());  
 			   }
-			   
+		  	   }
 			   
 			   br.close();
 				  
