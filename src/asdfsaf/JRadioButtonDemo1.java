@@ -25,6 +25,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
  
@@ -59,6 +60,12 @@ class MyRadio {
 	private static JTextField jtextField6 = new JTextField("TI_8745bc48dca6e82c8a49c05674dcb955");
 	
 	private JTextArea jta = new JTextArea("结果显示");
+	
+	
+	JScrollPane scroll = new JScrollPane(jta); 
+	
+	
+		
 
 	private JPanel panel = new JPanel();// /定义一个面板
 	private JPanel panel1 = new JPanel();// /定义一个面板
@@ -70,6 +77,9 @@ class MyRadio {
 	private static JLabel jlabel14 = new JLabel("");
  
 	public MyRadio() {
+		
+		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		panel.setBorder(BorderFactory.createTitledBorder("数据提交"));// 定义一个面板的边框显示条
 		panel.setLayout(new GridLayout(6, 10));// 定义排版，一行三列
 		
@@ -98,6 +108,8 @@ class MyRadio {
 		panel.add(this.jb6);// 加入组件
 		
 		
+		
+		
 
 		panel.add(this.jlabel14);
 		
@@ -106,7 +118,7 @@ class MyRadio {
 		
 		panel1.setBorder(BorderFactory.createTitledBorder("数据提交"));// 定义一个面板的边框显示条
 		panel1.setLayout(new GridLayout(1, 2));// 定义排版，一行三列
-		panel1.add(jta);
+		panel1.add(scroll);
 		
 	
 		panel.add(this.developer);
