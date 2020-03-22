@@ -75,11 +75,14 @@ class MyRadio {
 	
 	private static String zdflag="no";
 	private static JLabel jlabel14 = new JLabel("");
+	
+	private static   String  url="";
+	private static  String panduan="qqqqqqq";
  
 	public MyRadio() {
 		
-		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		panel.setBorder(BorderFactory.createTitledBorder("数据提交"));// 定义一个面板的边框显示条
 		panel.setLayout(new GridLayout(6, 10));// 定义排版，一行三列
 		
@@ -145,8 +148,8 @@ class MyRadio {
 			zdflag = "no";
 			
 			jta.setText("");
-			String url="";
-			String panduan="qqqqqqq";
+
+	
 			if(jb1.isSelected()){
 				panduan="1";
 				   
@@ -203,7 +206,25 @@ class MyRadio {
 				url="http://data.zz.baidu.com/update?site=www.sbzc360.cn&token=eMF5yE1vVSD5fBfeqE";
 
 			}*/
-			 eventOnImport(new JButton(),url,panduan,jta);
+			
+			
+			
+			 new Thread() {
+	                {
+	                    this.setDaemon(true);
+	                }
+	                public void run() {
+	                	 eventOnImport(new JButton(),url,panduan,jta);
+	                 
+	                }
+	               
+	            }.start();
+		
+	
+	
+	
+			
+			
 			 }});
 		
 		/*confirm.addActionListener(new ActionListener() {
