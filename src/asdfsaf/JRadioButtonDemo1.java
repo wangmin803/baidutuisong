@@ -146,49 +146,34 @@ class MyRadio {
 			
 		public void mouseClicked(MouseEvent event) {
 			zdflag = "no";
-			
 			jta.setText("");
-
-	
 			if(jb1.isSelected()){
 				panduan="1";
-				   
 				url="http://data.zz.baidu.com/urls?site="+jtextField1.getText()+"&token="+jtextField2.getText();
-
 			}
 			if(jb7.isSelected()){
 				panduan="7";
 				url="http://data.zz.baidu.com/update?site=ykdc.net&token="+jtextField2.getText();
-
 			}
 			if(jb2.isSelected()){
 				panduan="2";
 				url="http://data.zz.baidu.com/urls?site="+jtextField1.getText()+"&token="+jtextField2.getText()+"&type=mip";
-						
-			
 			}
 			if(jb3.isSelected()){
 				panduan="3";
 				url="http://data.zz.baidu.com/urls?site="+jtextField1.getText()+"&token="+jtextField2.getText()+"&type=amp";
-
-		
 			}
 			if(jb4.isSelected()){
 				panduan="jb4";
 				url="http://data.zz.baidu.com/urls?appid="+jtextField3.getText()+"&token="+jtextField4.getText()+"&type=realtime";
-
-
 			}
 			if(jb5.isSelected()){
 				panduan="4";
 				url="http://data.zz.baidu.com/urls?appid="+jtextField3.getText()+"&token="+jtextField4.getText()+"&type=batch";
-
-
 			}
 			if(jb6.isSelected()){
 				panduan="6";
 				url="http://data.zhanzhang.sm.cn/push?site="+jtextField3.getText()+"&user_name="+jtextField5.getText()+"&resource_name=mip_add&token="+jtextField6.getText();
-				     
 			}
 		/*	if(jb8.isSelected()){
 				panduan="8";
@@ -207,8 +192,6 @@ class MyRadio {
 
 			}*/
 			
-			
-			
 			 new Thread() {
 	                {
 	                    this.setDaemon(true);
@@ -219,12 +202,6 @@ class MyRadio {
 	                }
 	               
 	            }.start();
-		
-	
-	
-	
-			
-			
 			 }});
 		
 		/*confirm.addActionListener(new ActionListener() {
@@ -282,19 +259,14 @@ String text="";
 		
 			   List<String> list = new ArrayList<String> ();
 			   while((line = br.readLine()) != null){
-				   
-					   
 				  
-		     	   if(zdflag.equals("no")) {
+		     if(zdflag.equals("no")) {
 			   readLineNum ++ ;
          	   list.add(line);
-         	   
 
          	   if(panduan.equals("jb4")){
          		  if(readLineNum % 130==0 ){
          			 text+="=====第" + processCount + "次处理开始====="+url+"\r\n";
-         			 
-         		
          			  System.out.println("=====第" + processCount + "次处理开始====="+url);
          			  jta.setText(text);
          	       		jta.paintImmediately(jta.getBounds());  
@@ -309,9 +281,6 @@ String text="";
          			   processCount ++;
          	         
          	     }
-			   
-			
-			   
 			   }else{
 
          		   if(readLineNum % 2000 == 0){
@@ -330,16 +299,10 @@ String text="";
        			   processCount ++;
        			   }
          	   }
-			
-   
-		  
-		  
-		  
 			   }
 		     	   else {
 		     		   break;
 		     	   }
-			   
 			   }
 			   
 		  	   if(zdflag.equals("no")) {
