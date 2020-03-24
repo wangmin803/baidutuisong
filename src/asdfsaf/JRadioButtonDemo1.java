@@ -41,7 +41,7 @@ class MyRadio {
 	private JRadioButton jb6 = new JRadioButton("神马MIP提交");// 定义一个单选按钮
 	
 	private static JLabel jlabel1 = new JLabel("网站");
-	private static JTextField jtextField1 = new JTextField("http://ykdc.net");
+	private static JTextField jtextField1 = new JTextField("ykdc.net");
 	
 	private static JLabel jlabel2 = new JLabel("token");
 	private static JTextField jtextField2 = new JTextField("0do1pF16s4plwBKD");
@@ -153,7 +153,7 @@ class MyRadio {
 			}
 			if(jb7.isSelected()){
 				panduan="7";
-				url="http://data.zz.baidu.com/update?site=ykdc.net&token="+jtextField2.getText();
+				url="http://data.zz.baidu.com/update?site="+jtextField1.getText()+"&token="+jtextField2.getText();
 			}
 			if(jb2.isSelected()){
 				panduan="2";
