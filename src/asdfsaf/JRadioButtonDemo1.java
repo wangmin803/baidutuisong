@@ -173,7 +173,7 @@ class MyRadio {
 			}
 			if(jb6.isSelected()){
 				panduan="6";
-				url="http://data.zhanzhang.sm.cn/push?site="+jtextField3.getText()+"&user_name="+jtextField5.getText()+"&resource_name=mip_add&token="+jtextField6.getText();
+				url="http://data.zhanzhang.sm.cn/push?site="+jtextField1.getText()+"&user_name="+jtextField5.getText()+"&resource_name=mip_add&token="+jtextField6.getText();
 			}
 		/*	if(jb8.isSelected()){
 				panduan="8";
